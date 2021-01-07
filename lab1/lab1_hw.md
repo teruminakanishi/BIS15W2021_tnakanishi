@@ -21,8 +21,6 @@ GitHub is useful because we can share our code through our community and world t
 
 **3. Navigate to my [BIS15L](https://github.com/jmledford3115/BIS15LW2021_jledford) repository on GitHub. Notice that near the bottom there is a nice, clean description of the repository. You want this on your repository! It is built by making edits to the `README.md` file using the RMarkdown conventions. Edit your repository's `README.md` file so that you have a clean informative description, including your email address. Be creative! You don't need to just copy mine. There are lots of examples online.** 
 
-
-
 **4. Calculate the following expressions. Be sure to include each one in a separate code chunk.**  
 
 ```r
@@ -91,6 +89,10 @@ pi*2
 
 ```r
 x <- c(2, 8, 6, 6, 7, 4, 9, 9, 9, 10)
+```
+
+
+```r
 mean(x)
 ```
 
@@ -102,12 +104,17 @@ mean(x)
 
 ```r
 x <- c(2, 8, 6, 6, 7, 4, 9, 9, 9, 10)
+```
+
+
+```r
 median(x)
 ```
 
 ```
 ## [1] 7.5
 ```
+
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.  
