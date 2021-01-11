@@ -71,14 +71,14 @@ spring_matrix
 6. Calculate the mean temperature of all three springs.
 
 ```{r}
-spring_mean<-rowMeans(spring_matrix)
-spring_mean
+spring_temperature<-rowMeans(spring_matrix)
+spring_temperature
 ```
 
 7. Add this as a new column in the data matrix.  
 
 ```{r}
-all_spring_matrix<-cbind(spring_matrix,spring_mean)
+all_spring_matrix<-cbind(spring_matrix,spring_temperature)
 all_spring_matrix
 ```
 
