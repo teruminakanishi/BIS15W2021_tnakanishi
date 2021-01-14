@@ -34,7 +34,7 @@ sleep<-msleep
 
 3. What are the dimensions of this data frame (variables and observations)? How do you know? Please show the *code* that you used to determine this below.  
 
-This data frame is 11 variables and 83 observations. I know that by running the following code.
+This data frame is composed of 11 variables and 83 observations. I know that by running the following code.
 
 ```{r}
 dim(sleep)
@@ -65,25 +65,33 @@ table(sleep$vore)
 7. We are interested in two groups; small and large mammals. Let's define small as less than or equal to 1kg body weight and large as greater than or equal to 200kg body weight. Make two new dataframes (large and small) based on these parameters.
 ```{r}
 small<-subset(sleep,bodywt<=1)
-hsmall<-data.frame(small)
-hsmall
+small
 ```
 ```{r}
 large<-subset(sleep, bodywt>=200)
-hlarge<-data.frame(large)
-hlarge
+large
 ```
 
+```{r}
+names(small)
+```
+
+```{r}
+is.na(small$bodywt)
+```
+```{r}
+glimpse(small)
+```
 
 8. What is the mean weight for both the small and large mammals?
 ```{r}
-x<-hsmall[,11]
-mean(x)
+x<-small[,11]
+colMeans(x)
 ```
 
 ```{r}
-y<-hlarge[,11]
-mean(y)
+y<-large[,11]
+colMeans(y)
 ```
 
 9. Using a similar approach as above, do large or small animals sleep longer on average?  
@@ -91,24 +99,26 @@ mean(y)
 Small animals sleep longer on average. The result was by running following code.
 
 ```{r}
-z<-hsmall[,6]
-mean(z)
+z<-small[,6]
+colMeans(z)
 ```
 
 ```{r}
-v<-hlarge[,6]
-mean(v)
+v<-large[,6]
+colMeans(v)
 ```
 
 10. Which animal is the sleepiest among the entire dataframe?
 That is Little brown bat.
+
 ```{r}
-sleepiest_animal<-subset(sleep,sleep_total>=19)
+sleep_animal<-max(sleep$sleep_total)
+sleep_animal
 ```
 
 ```{r}
-hsleepiest_animal<-data.frame(sleepiest_animal)
-hsleepiest_animal
+sleepiest_animal<-subset(sleep,sleep_total==19.9)
+sleepiest_animal
 ```
 
 ## Push your final code to GitHub!
