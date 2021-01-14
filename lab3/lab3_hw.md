@@ -117,6 +117,7 @@ small
 ## # ... with 26 more rows, and 2 more variables: brainwt <dbl>, bodywt <dbl>
 ```
 
+
 ```r
 large<-subset(sleep, bodywt>=200)
 large
@@ -134,48 +135,6 @@ large
 ## 6 Afri~ Loxo~ herbi Prob~ vu                   3.3      NA        NA      20.7
 ## 7 Braz~ Tapi~ herbi Peri~ vu                   4.4       1         0.9    19.6
 ## # ... with 2 more variables: brainwt <dbl>, bodywt <dbl>
-```
-
-
-```r
-names(small)
-```
-
-```
-##  [1] "name"         "genus"        "vore"         "order"        "conservation"
-##  [6] "sleep_total"  "sleep_rem"    "sleep_cycle"  "awake"        "brainwt"     
-## [11] "bodywt"
-```
-
-
-```r
-is.na(small$bodywt)
-```
-
-```
-##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-```
-
-```r
-glimpse(small)
-```
-
-```
-## Rows: 36
-## Columns: 11
-## $ name         <chr> "Owl monkey", "Greater short-tailed shrew", "Vesper mo...
-## $ genus        <chr> "Aotus", "Blarina", "Calomys", "Cavis", "Chinchilla", ...
-## $ vore         <chr> "omni", "omni", NA, "herbi", "herbi", "omni", "omni", ...
-## $ order        <chr> "Primates", "Soricomorpha", "Rodentia", "Rodentia", "R...
-## $ conservation <chr> NA, "lc", NA, "domesticated", "domesticated", "lc", NA...
-## $ sleep_total  <dbl> 17.0, 14.9, 7.0, 9.4, 12.5, 10.3, 8.3, 9.1, 19.7, 10.1...
-## $ sleep_rem    <dbl> 1.8, 2.3, NA, 0.8, 1.5, 2.2, 2.0, 1.4, 3.9, 3.5, NA, 1...
-## $ sleep_cycle  <dbl> NA, 0.1333333, NA, 0.2166667, 0.1166667, NA, NA, 0.150...
-## $ awake        <dbl> 7.0, 9.1, 17.0, 14.6, 11.5, 13.7, 15.7, 14.9, 4.3, 13....
-## $ brainwt      <dbl> 0.01550, 0.00029, NA, 0.00550, 0.00640, 0.00100, 0.006...
-## $ bodywt       <dbl> 0.480, 0.019, 0.045, 0.728, 0.420, 0.060, 1.000, 0.005...
 ```
 
 8. What is the mean weight for both the small and large mammals?

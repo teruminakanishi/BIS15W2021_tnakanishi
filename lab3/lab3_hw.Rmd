@@ -67,20 +67,10 @@ table(sleep$vore)
 small<-subset(sleep,bodywt<=1)
 small
 ```
+
 ```{r}
 large<-subset(sleep, bodywt>=200)
 large
-```
-
-```{r}
-names(small)
-```
-
-```{r}
-is.na(small$bodywt)
-```
-```{r}
-glimpse(small)
 ```
 
 8. What is the mean weight for both the small and large mammals?
