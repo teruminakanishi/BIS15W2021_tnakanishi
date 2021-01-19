@@ -315,8 +315,8 @@ table(homerange$trophic.guild)
 
 
 ```r
-carnivore_animal<-subset(homerange, trophic.guild=="carnivore")
-herbivore_animal<-subset(homerange, trophic.guild=="herbivore")
+carnivore_animal<-filter(homerange, trophic.guild=="carnivore")
+herbivore_animal<-filter(homerange, trophic.guild=="herbivore")
 ```
 
 
@@ -435,7 +435,7 @@ snake_data_ans
 
 _Bitis	schneideri_ The common name is namaqua dwarf adder. That is smallest adder in the world and is largely active during the day.However, you might see that moving on night. Female one prodduce 3 to 7 youngs.
 I wrote this by the following page.
-Please see [this page](https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder)if you would like to know more.
+Please see [this page](https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder) if you would like to know more.
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.   

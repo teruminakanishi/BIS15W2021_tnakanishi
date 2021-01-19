@@ -625,8 +625,8 @@ homerange$order&lt;-as.factor(homerange$order)</code></pre>
 ## carnivore herbivore 
 ##       342       227</code></pre>
 <p><strong>7. Make two new data frames, one which is restricted to carnivores and another that is restricted to herbivores.</strong></p>
-<pre class="r"><code>carnivore_animal&lt;-subset(homerange, trophic.guild==&quot;carnivore&quot;)
-herbivore_animal&lt;-subset(homerange, trophic.guild==&quot;herbivore&quot;)</code></pre>
+<pre class="r"><code>carnivore_animal&lt;-filter(homerange, trophic.guild==&quot;carnivore&quot;)
+herbivore_animal&lt;-filter(homerange, trophic.guild==&quot;herbivore&quot;)</code></pre>
 <p><strong>8. Do herbivores or carnivores have, on average, a larger <code>mean.hra.m2</code>? Remove any NAs from the data.</strong><br />
 Herbivores are larger.</p>
 <pre class="r"><code>mean(carnivore_animal$mean.hra.m2, na.rm = T)</code></pre>
@@ -697,7 +697,7 @@ snake_data_ans</code></pre>
 ## #   hra.reference &lt;chr&gt;, realm &lt;chr&gt;, thermoregulation &lt;chr&gt;, locomotion &lt;chr&gt;,
 ## #   trophic.guild &lt;chr&gt;, dimension &lt;chr&gt;, preymass &lt;dbl&gt;, log10.preymass &lt;dbl&gt;,
 ## #   PPMR &lt;dbl&gt;, prey.size.reference &lt;chr&gt;</code></pre>
-<p><em>Bitis schneideri</em> The common name is namaqua dwarf adder. That is smallest adder in the world and is largely active during the day.However, you might see that moving on night. Female one prodduce 3 to 7 youngs. I wrote this by the following page. Please see <a href="https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder">this page</a>if you would like to know more.</p>
+<p><em>Bitis schneideri</em> The common name is namaqua dwarf adder. That is smallest adder in the world and is largely active during the day.However, you might see that moving on night. Female one prodduce 3 to 7 youngs. I wrote this by the following page. Please see <a href="https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder">this page</a> if you would like to know more.</p>
 </div>
 <div id="push-your-final-code-to-github" class="section level2">
 <h2>Push your final code to GitHub!</h2>
