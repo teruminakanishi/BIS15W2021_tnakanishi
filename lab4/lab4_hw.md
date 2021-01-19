@@ -321,7 +321,7 @@ herbivore_animal<-filter(homerange, trophic.guild=="herbivore")
 
 
 **8. Do herbivores or carnivores have, on average, a larger `mean.hra.m2`? Remove any NAs from the data.**  
-Herbivores are larger.
+Herbivores have larger.
 
 
 ```r

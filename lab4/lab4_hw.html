@@ -628,7 +628,7 @@ homerange$order&lt;-as.factor(homerange$order)</code></pre>
 <pre class="r"><code>carnivore_animal&lt;-filter(homerange, trophic.guild==&quot;carnivore&quot;)
 herbivore_animal&lt;-filter(homerange, trophic.guild==&quot;herbivore&quot;)</code></pre>
 <p><strong>8. Do herbivores or carnivores have, on average, a larger <code>mean.hra.m2</code>? Remove any NAs from the data.</strong><br />
-Herbivores are larger.</p>
+Herbivores have larger.</p>
 <pre class="r"><code>mean(carnivore_animal$mean.hra.m2, na.rm = T)</code></pre>
 <pre><code>## [1] 13039918</code></pre>
 <pre class="r"><code>mean(herbivore_animal$mean.hra.m2, na.rm = T)</code></pre>
