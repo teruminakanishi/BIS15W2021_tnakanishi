@@ -434,8 +434,7 @@ Data: <a href="http://datadryad.org/resource/doi:10.5061/dryad.q5j65/1" class="u
 ##   PPMR = col_double()
 ## )
 ## i Use `spec()` for the full column specifications.</code></pre>
-<p><strong>2. Explore the data. Show the dimensions, column names, classes for each variable, and a statistical summary. Keep these as separate code chunks.</strong><br />
-Rows are 569 and columns are 24.</p>
+<p><strong>2. Explore the data. Show the dimensions, column names, classes for each variable, and a statistical summary. Keep these as separate code chunks.</strong></p>
 <pre class="r"><code>glimpse(homerange)</code></pre>
 <pre><code>## Rows: 569
 ## Columns: 24
@@ -476,55 +475,6 @@ Rows are 569 and columns are 24.</p>
 ## [19] &quot;trophic.guild&quot;              &quot;dimension&quot;                 
 ## [21] &quot;preymass&quot;                   &quot;log10.preymass&quot;            
 ## [23] &quot;PPMR&quot;                       &quot;prey.size.reference&quot;</code></pre>
-<pre class="r"><code>class(homerange$taxon)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$common.name)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$class)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$order)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$family)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$genus)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$species)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$primarymethod)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$N)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$mean.mass.g)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(homerange$log10.mass)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(homerange$alternative.mass.reference)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$mean.hra.m2)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(homerange$log10.hra)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(homerange$hra.reference)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$realm)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$thermoregulation)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$locomotion)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$trophic.guild)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$dimension)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(homerange$preymass)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(homerange$log10.preymass)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(homerange$PPMR)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(homerange$prey.size.reference)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<p>Or instead of using separate code for each variables, we also can do the below.</p>
 <pre class="r"><code>str(homerange)</code></pre>
 <pre><code>## tibble [569 x 24] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ taxon                     : chr [1:569] &quot;lake fishes&quot; &quot;river fishes&quot; &quot;river fishes&quot; &quot;river fishes&quot; ...
@@ -684,26 +634,26 @@ Herbivores are larger.</p>
 <pre class="r"><code>mean(herbivore_animal$mean.hra.m2, na.rm = T)</code></pre>
 <pre><code>## [1] 34137012</code></pre>
 <p><strong>9. Make a new dataframe <code>deer</code> that is limited to the mean mass, log10 mass, family, genus, and species of deer in the database. The family for deer is cervidae. Arrange the data in descending order by log10 mass. Which is the largest deer? What is its common name?</strong><br />
-Alces alces. Common name is moose.</p>
-<pre class="r"><code>deer_old&lt;-select(homerange,&quot;mean.mass.g&quot;, &quot;log10.mass&quot;, &quot;family&quot;, &quot;genus&quot;, &quot;species&quot;)
+<em>Alces alces</em> Common name is moose.</p>
+<pre class="r"><code>deer_old&lt;-select(homerange, &quot;family&quot;, &quot;genus&quot;, &quot;species&quot;,&quot;mean.mass.g&quot;, &quot;log10.mass&quot;)
 deer_new&lt;-filter(deer_old,family==&quot;cervidae&quot;)
 deer&lt;-arrange(deer_new,desc(log10.mass))
 deer</code></pre>
 <pre><code>## # A tibble: 12 x 5
-##    mean.mass.g log10.mass family   genus      species    
-##          &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      
-##  1     307227.       5.49 cervidae alces      alces      
-##  2     234758.       5.37 cervidae cervus     elaphus    
-##  3     102059.       5.01 cervidae rangifer   tarandus   
-##  4      87884.       4.94 cervidae odocoileus virginianus
-##  5      71450.       4.85 cervidae dama       dama       
-##  6      62823.       4.80 cervidae axis       axis       
-##  7      53864.       4.73 cervidae odocoileus hemionus   
-##  8      35000.       4.54 cervidae ozotoceros bezoarticus
-##  9      29450.       4.47 cervidae cervus     nippon     
-## 10      24050.       4.38 cervidae capreolus  capreolus  
-## 11      13500.       4.13 cervidae muntiacus  reevesi    
-## 12       7500.       3.88 cervidae pudu       puda</code></pre>
+##    family   genus      species     mean.mass.g log10.mass
+##    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;
+##  1 cervidae alces      alces           307227.       5.49
+##  2 cervidae cervus     elaphus         234758.       5.37
+##  3 cervidae rangifer   tarandus        102059.       5.01
+##  4 cervidae odocoileus virginianus      87884.       4.94
+##  5 cervidae dama       dama             71450.       4.85
+##  6 cervidae axis       axis             62823.       4.80
+##  7 cervidae odocoileus hemionus         53864.       4.73
+##  8 cervidae ozotoceros bezoarticus      35000.       4.54
+##  9 cervidae cervus     nippon           29450.       4.47
+## 10 cervidae capreolus  capreolus        24050.       4.38
+## 11 cervidae muntiacus  reevesi          13500.       4.13
+## 12 cervidae pudu       puda              7500.       3.88</code></pre>
 <pre class="r"><code>filter(homerange, genus==&quot;alces&quot;&amp;species==&quot;alces&quot;)</code></pre>
 <pre><code>## # A tibble: 1 x 24
 ##   taxon common.name class order family genus species primarymethod N    
@@ -715,19 +665,8 @@ deer</code></pre>
 ## #   trophic.guild &lt;chr&gt;, dimension &lt;chr&gt;, preymass &lt;dbl&gt;, log10.preymass &lt;dbl&gt;,
 ## #   PPMR &lt;dbl&gt;, prey.size.reference &lt;chr&gt;</code></pre>
 <p><strong>10. As measured by the data, which snake species has the smallest homerange? Show all of your work, please. Look this species up online and tell me about it!</strong> <strong>Snake is found in taxon column</strong></p>
-<pre class="r"><code>snake_data&lt;-subset(homerange, taxon==&quot;snakes&quot;)</code></pre>
-<pre class="r"><code>min(snake_data$log10.hra)</code></pre>
-<pre><code>## [1] 2.30103</code></pre>
-<pre class="r"><code>filter(snake_data,log10.hra==2.30103)</code></pre>
-<pre><code>## # A tibble: 0 x 24
-## # ... with 24 variables: taxon &lt;fct&gt;, common.name &lt;chr&gt;, class &lt;chr&gt;,
-## #   order &lt;fct&gt;, family &lt;chr&gt;, genus &lt;chr&gt;, species &lt;chr&gt;, primarymethod &lt;chr&gt;,
-## #   N &lt;chr&gt;, mean.mass.g &lt;dbl&gt;, log10.mass &lt;dbl&gt;,
-## #   alternative.mass.reference &lt;chr&gt;, mean.hra.m2 &lt;dbl&gt;, log10.hra &lt;dbl&gt;,
-## #   hra.reference &lt;chr&gt;, realm &lt;chr&gt;, thermoregulation &lt;chr&gt;, locomotion &lt;chr&gt;,
-## #   trophic.guild &lt;chr&gt;, dimension &lt;chr&gt;, preymass &lt;dbl&gt;, log10.preymass &lt;dbl&gt;,
-## #   PPMR &lt;dbl&gt;, prey.size.reference &lt;chr&gt;</code></pre>
-<pre class="r"><code>snake_data_new&lt;-arrange(snake_data,log10.hra)
+<pre class="r"><code>snake_data&lt;-subset(homerange, taxon==&quot;snakes&quot;)
+snake_data_new&lt;-arrange(snake_data,log10.hra)
 snake_data_new</code></pre>
 <pre><code>## # A tibble: 41 x 24
 ##    taxon common.name class order family genus species primarymethod N    
@@ -758,7 +697,7 @@ snake_data_ans</code></pre>
 ## #   hra.reference &lt;chr&gt;, realm &lt;chr&gt;, thermoregulation &lt;chr&gt;, locomotion &lt;chr&gt;,
 ## #   trophic.guild &lt;chr&gt;, dimension &lt;chr&gt;, preymass &lt;dbl&gt;, log10.preymass &lt;dbl&gt;,
 ## #   PPMR &lt;dbl&gt;, prey.size.reference &lt;chr&gt;</code></pre>
-<p>Bitis schneideri. The common name is namaqua dwarf adder. That is smallest adder in the world and is largely active during the day.However, you might see that moving on night. I wrote this by the following page <a href="https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder" class="uri">https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder</a></p>
+<p><em>Bitis schneideri</em> The common name is namaqua dwarf adder. That is smallest adder in the world and is largely active during the day.However, you might see that moving on night. Female one prodduce 3 to 7 youngs. I wrote this by the following page. Please see <a href="https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder">this page</a>if you would like to know more.</p>
 </div>
 <div id="push-your-final-code-to-github" class="section level2">
 <h2>Push your final code to GitHub!</h2>

@@ -35,9 +35,8 @@ Data: http://datadryad.org/resource/doi:10.5061/dryad.q5j65/1
 homerange<- readr::read_csv("data/Tamburelloetal_HomeRangeDatabase.csv")
 ```
 
-
 **2. Explore the data. Show the dimensions, column names, classes for each variable, and a statistical summary. Keep these as separate code chunks.**  
-Rows are 569 and columns are 24.
+
 ```{r}
 glimpse(homerange)
 ```
@@ -46,34 +45,6 @@ glimpse(homerange)
 names(homerange)
 ```
 
-```{r}
-class(homerange$taxon)
-class(homerange$common.name)
-class(homerange$class)
-class(homerange$order)
-class(homerange$family)
-class(homerange$genus)
-class(homerange$species)
-class(homerange$primarymethod)
-class(homerange$N)
-class(homerange$mean.mass.g)
-class(homerange$log10.mass)
-class(homerange$alternative.mass.reference)
-class(homerange$mean.hra.m2)
-class(homerange$log10.hra)
-class(homerange$hra.reference)
-class(homerange$realm)
-class(homerange$thermoregulation)
-class(homerange$locomotion)
-class(homerange$trophic.guild)
-class(homerange$dimension)
-class(homerange$preymass)
-class(homerange$log10.preymass)
-class(homerange$PPMR)
-class(homerange$prey.size.reference)
-
-```
-Or instead of using separate code for each variables, we also can do the below.
 ```{r}
 str(homerange)
 ```
@@ -132,10 +103,10 @@ mean(herbivore_animal$mean.hra.m2, na.rm = T)
 
 
 **9. Make a new dataframe `deer` that is limited to the mean mass, log10 mass, family, genus, and species of deer in the database. The family for deer is cervidae. Arrange the data in descending order by log10 mass. Which is the largest deer? What is its common name?**  	
-Alces alces. Common name is moose.
+_Alces alces_ Common name is moose.
 
 ```{r}
-deer_old<-select(homerange,"mean.mass.g", "log10.mass", "family", "genus", "species")
+deer_old<-select(homerange, "family", "genus", "species","mean.mass.g", "log10.mass")
 deer_new<-filter(deer_old,family=="cervidae")
 deer<-arrange(deer_new,desc(log10.mass))
 deer
@@ -148,25 +119,15 @@ filter(homerange, genus=="alces"&species=="alces")
 
 ```{r}
 snake_data<-subset(homerange, taxon=="snakes")
-```
-
-```{r}
-min(snake_data$log10.hra)
-```
-
-```{r}
-filter(snake_data,log10.hra==2.30103)
-```
-
-```{r}
 snake_data_new<-arrange(snake_data,log10.hra)
 snake_data_new
 snake_data_ans<-filter(snake_data_new, genus=="bitis"&species=="schneideri")
 snake_data_ans
 ```
-Bitis	schneideri. The common name is namaqua dwarf adder. That is smallest adder in the world and is largely active during the day.However, you might see that moving on night.
-I wrote this by the following page
-https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder
+
+_Bitis	schneideri_ The common name is namaqua dwarf adder. That is smallest adder in the world and is largely active during the day.However, you might see that moving on night. Female one prodduce 3 to 7 youngs.
+I wrote this by the following page.
+Please see [this page](https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder)if you would like to know more.
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.   

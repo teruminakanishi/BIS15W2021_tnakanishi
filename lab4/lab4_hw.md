@@ -51,9 +51,8 @@ homerange<- readr::read_csv("data/Tamburelloetal_HomeRangeDatabase.csv")
 ## i Use `spec()` for the full column specifications.
 ```
 
-
 **2. Explore the data. Show the dimensions, column names, classes for each variable, and a statistical summary. Keep these as separate code chunks.**  
-Rows are 569 and columns are 24.
+
 
 ```r
 glimpse(homerange)
@@ -108,199 +107,6 @@ names(homerange)
 ## [23] "PPMR"                       "prey.size.reference"
 ```
 
-
-```r
-class(homerange$taxon)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$common.name)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$class)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$order)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$family)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$genus)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$species)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$primarymethod)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$N)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$mean.mass.g)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-class(homerange$log10.mass)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-class(homerange$alternative.mass.reference)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$mean.hra.m2)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-class(homerange$log10.hra)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-class(homerange$hra.reference)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$realm)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$thermoregulation)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$locomotion)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$trophic.guild)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$dimension)
-```
-
-```
-## [1] "character"
-```
-
-```r
-class(homerange$preymass)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-class(homerange$log10.preymass)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-class(homerange$PPMR)
-```
-
-```
-## [1] "numeric"
-```
-
-```r
-class(homerange$prey.size.reference)
-```
-
-```
-## [1] "character"
-```
-Or instead of using separate code for each variables, we also can do the below.
 
 ```r
 str(homerange)
@@ -536,11 +342,11 @@ mean(herbivore_animal$mean.hra.m2, na.rm = T)
 
 
 **9. Make a new dataframe `deer` that is limited to the mean mass, log10 mass, family, genus, and species of deer in the database. The family for deer is cervidae. Arrange the data in descending order by log10 mass. Which is the largest deer? What is its common name?**  	
-Alces alces. Common name is moose.
+_Alces alces_ Common name is moose.
 
 
 ```r
-deer_old<-select(homerange,"mean.mass.g", "log10.mass", "family", "genus", "species")
+deer_old<-select(homerange, "family", "genus", "species","mean.mass.g", "log10.mass")
 deer_new<-filter(deer_old,family=="cervidae")
 deer<-arrange(deer_new,desc(log10.mass))
 deer
@@ -548,20 +354,20 @@ deer
 
 ```
 ## # A tibble: 12 x 5
-##    mean.mass.g log10.mass family   genus      species    
-##          <dbl>      <dbl> <chr>    <chr>      <chr>      
-##  1     307227.       5.49 cervidae alces      alces      
-##  2     234758.       5.37 cervidae cervus     elaphus    
-##  3     102059.       5.01 cervidae rangifer   tarandus   
-##  4      87884.       4.94 cervidae odocoileus virginianus
-##  5      71450.       4.85 cervidae dama       dama       
-##  6      62823.       4.80 cervidae axis       axis       
-##  7      53864.       4.73 cervidae odocoileus hemionus   
-##  8      35000.       4.54 cervidae ozotoceros bezoarticus
-##  9      29450.       4.47 cervidae cervus     nippon     
-## 10      24050.       4.38 cervidae capreolus  capreolus  
-## 11      13500.       4.13 cervidae muntiacus  reevesi    
-## 12       7500.       3.88 cervidae pudu       puda
+##    family   genus      species     mean.mass.g log10.mass
+##    <chr>    <chr>      <chr>             <dbl>      <dbl>
+##  1 cervidae alces      alces           307227.       5.49
+##  2 cervidae cervus     elaphus         234758.       5.37
+##  3 cervidae rangifer   tarandus        102059.       5.01
+##  4 cervidae odocoileus virginianus      87884.       4.94
+##  5 cervidae dama       dama             71450.       4.85
+##  6 cervidae axis       axis             62823.       4.80
+##  7 cervidae odocoileus hemionus         53864.       4.73
+##  8 cervidae ozotoceros bezoarticus      35000.       4.54
+##  9 cervidae cervus     nippon           29450.       4.47
+## 10 cervidae capreolus  capreolus        24050.       4.38
+## 11 cervidae muntiacus  reevesi          13500.       4.13
+## 12 cervidae pudu       puda              7500.       3.88
 ```
 
 ```r
@@ -585,35 +391,6 @@ filter(homerange, genus=="alces"&species=="alces")
 
 ```r
 snake_data<-subset(homerange, taxon=="snakes")
-```
-
-
-```r
-min(snake_data$log10.hra)
-```
-
-```
-## [1] 2.30103
-```
-
-
-```r
-filter(snake_data,log10.hra==2.30103)
-```
-
-```
-## # A tibble: 0 x 24
-## # ... with 24 variables: taxon <fct>, common.name <chr>, class <chr>,
-## #   order <fct>, family <chr>, genus <chr>, species <chr>, primarymethod <chr>,
-## #   N <chr>, mean.mass.g <dbl>, log10.mass <dbl>,
-## #   alternative.mass.reference <chr>, mean.hra.m2 <dbl>, log10.hra <dbl>,
-## #   hra.reference <chr>, realm <chr>, thermoregulation <chr>, locomotion <chr>,
-## #   trophic.guild <chr>, dimension <chr>, preymass <dbl>, log10.preymass <dbl>,
-## #   PPMR <dbl>, prey.size.reference <chr>
-```
-
-
-```r
 snake_data_new<-arrange(snake_data,log10.hra)
 snake_data_new
 ```
@@ -655,9 +432,10 @@ snake_data_ans
 ## #   trophic.guild <chr>, dimension <chr>, preymass <dbl>, log10.preymass <dbl>,
 ## #   PPMR <dbl>, prey.size.reference <chr>
 ```
-Bitis	schneideri. The common name is namaqua dwarf adder. That is smallest adder in the world and is largely active during the day.However, you might see that moving on night.
-I wrote this by the following page
-https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder
+
+_Bitis	schneideri_ The common name is namaqua dwarf adder. That is smallest adder in the world and is largely active during the day.However, you might see that moving on night. Female one prodduce 3 to 7 youngs.
+I wrote this by the following page.
+Please see [this page](https://www.africansnakebiteinstitute.com/snake/namaqua-dwarf-adder)if you would like to know more.
 
 ## Push your final code to GitHub!
 Please be sure that you check the `keep md` file in the knit preferences.   
