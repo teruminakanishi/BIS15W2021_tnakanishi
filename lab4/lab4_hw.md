@@ -1,7 +1,7 @@
 ---
 title: "Lab 4 Homework"
 author: "Terumi Nakanishi"
-date: "2021-01-18"
+date: "2021-01-20"
 output:
   html_document: 
     theme: spacelab
